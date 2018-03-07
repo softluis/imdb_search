@@ -1,0 +1,13 @@
+version: '2'
+services:
+
+  www:
+    build: www/.
+    volumes: 
+    - ./www:/opt/www
+    ports:
+      - "80:80"
+
+ 
+
+
