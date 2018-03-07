@@ -1,6 +1,6 @@
-def ip = 'teste'
+def ip = '0.0.0.0'
 def link = 'http://'
-def porta = ':5000'
+def porta = ':80'
 pipeline {
     agent any  
     stages{
@@ -24,7 +24,6 @@ pipeline {
    	stage('Test container') {
 		steps {
 					script{	
-						ip = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' imdbsearch_www_1").trim()
 						sh "echo ${ip}"
 						sh "echo ${link}"
 						sh "echo ${porta}"
