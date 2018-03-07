@@ -1,5 +1,3 @@
-def link = 'http://'
-def porta = ':80'
 pipeline {
     agent any  
     stages{
@@ -20,12 +18,6 @@ pipeline {
 			
             	} 
             }
-		
-        
-    }
-    post {
-        always {
-            deleteDir()
-        }
-    }     
+   
+    }    
 }
