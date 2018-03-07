@@ -23,7 +23,7 @@ pipeline {
 		stage('Test container') {
 		steps {
 					script{	
-						ip = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cenario_www_1").trim()
+						ip = sh(returnStdout: true, script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' imdbsearch_www_1").trim()
 						sh "echo ${ip}"
 						sh "echo ${link}"
 						sh "echo ${porta}"
