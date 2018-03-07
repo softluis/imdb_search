@@ -1,29 +1,23 @@
 <form action="/echo" method="POST">
 <input name="text">
-<input type="submit" value="Pesquisar">
+<input type="submit" value="Echo">
 </form>
  
-{% if text %}
-  Filme Pesquisado: {{ text }} 
-  <p>Filme: {{result.Title}}
-  <br>Year: {{result.Year}}
-  <br>Rated: {{result.Rated}}
-  <br>Released: {{result.Released}}
-  <br>Runtime: {{result.Runtime}}
-  <br>Genre: {{result.Genre}}
-  <br>Director: {{result.Director}}
-  <br>Writer: {{result.Writer}}
-  <br>Actors: {{result.Actors}}
-  <br>Plot: {{result.Plot}}
-  <br>Language: {{result.Language}}
-  <br>Country: {{result.Country}}
-  <br>Awards: {{result.Awards}}
-  <br>Ratings: {{result.Ratings}}
-  <br>Metascore: {{result.Metascore}}
-  <br>imdbRating: {{result.imdbRating}}
-  <br>imdbVotes: {{result.imdbVotes}}
-  <br>imdbID: {{result.imdbID}}
+{% if result %}
+    {% for key, value in result.items() %}
+        {% if key  == 'Poster' %}
+            <h4>Poster:</h4>
+            <img src= {{value}} style=width:400px;height:auto ></img>
+        {% endif %}
+        {% if key  == 'Ratings' %}
+            {% for ratings  in result.Ratings %}
+                <h4>Rating from {{ ratings.Source }} : {{ ratings.Value }}</h4>
+            {% endfor %}
+        {% endif %}
+        {% if key  != 'Poster' and key != 'Ratings' %}
+            <h4> {{ key }}  :  {{ value }} </h4>
+        {% endif %}
+    {% endfor %}
 {% endif %}
-
 
 
