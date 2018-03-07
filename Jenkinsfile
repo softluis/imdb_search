@@ -1,3 +1,6 @@
+def ip = 'teste'
+def link = 'http://'
+def porta = ':5000'
 pipeline {
     agent any  
     stages{
